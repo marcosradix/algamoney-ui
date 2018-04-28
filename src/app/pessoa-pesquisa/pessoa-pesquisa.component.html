@@ -1,0 +1,42 @@
+<div class="ui-g" >
+
+    <div class="ui-g-12" style="margin-top:10%;" >
+      <h1>Pessoas</h1>
+    </div>
+    <div class="ui-g-12 ui-fluid">
+      <label for="idDescricao" >Nome</label>
+        <input id="idDescricao" type="text" [(ngModel)]="entradaTexto" (ngModelChange)="pesquisar(entradaTexto)" pInputText>
+    </div>
+    <div class="ui-g-12">
+      <button [disabled]="!entradaTexto" pButton type="submit" label="Pesquisar"></button>
+    </div>
+  
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <p-dataTable [value]="pessoas" [rows]="10" [paginator]="true" 
+        [rowsPerPageOptions]="[5,10,20,30]" emptyMessage="Nada para mostrar." [responsive]="true" >
+          <p-column field="nome" header="Nome"></p-column>
+          <p-column field="cidade" header="Cidade"></p-column>
+          <p-column field="uf" header="Estado" styleClass="col-data"></p-column>
+          <p-column field="status" header="Status" styleClass="col-valor">
+              <ng-template let-lanc="rowData" pTemplate="body">
+                  <span>{{lanc.status === true ? 'Ativo' : 'Inativo'}}</span>
+                </ng-template>
+          </p-column>
+  
+
+          <p-column styleClass="col-acoes" header="Ações" >
+            <ng-template pTemplate="body">
+              <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top" ></a>
+              <a pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" ></a>
+            </ng-template>
+          </p-column>
+  
+        </p-dataTable>
+      </div>
+      <div class="ui-g-12">
+        <a href="javascript:;" pButton label="Nova Pessoa"></a>
+      </div>
+    </div>
+  
+  </div>

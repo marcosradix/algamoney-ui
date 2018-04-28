@@ -1,0 +1,53 @@
+<div class="ui-g">
+
+  <div class="ui-g-12" style="margin-top:10%;">
+    <h1>Lancamentos</h1>
+  </div>
+  <div class="ui-g-12 ui-fluid">
+    <label for="idDescricao" >Descrição</label>
+      <input id="idDescricao" type="text" [(ngModel)]="entradaTexto" (ngModelChange)="pesquisar(entradaTexto)" pInputText>
+  </div>
+
+  <div class="ui-g-12">
+
+    <label style="display: block;" for="venc">Vencimento</label>
+    <input type="text" id="venc" style="width:95px;" pInputText>
+
+    <label>Até
+      <input type="text" style="width:95px;" pInputText>
+    </label>
+  </div>
+
+  <div class="ui-g-12">
+    <button [disabled]="!entradaTexto" pButton type="submit" label="Pesquisar"></button>
+  </div>
+
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <p-dataTable [value]="lancamentos" [rows]="10" [paginator]="true" 
+      [rowsPerPageOptions]="[5,10,20,30]" emptyMessage="Nada para mostrar." [responsive]="true" >
+        <p-column field="pessoa" header="Pessoa"></p-column>
+        <p-column field="descricao" header="Descrição"></p-column>
+        <p-column field="dataVencimento" header="Vencimento" styleClass="col-data"></p-column>
+        <p-column field="dataPagamento" header="Pagamento" styleClass="col-data"></p-column>
+        <p-column field="valor | currency:'BRL':'symbol':'4.2-2'" header="Valor" styleClass="col-valor">
+          <ng-template let-lanc="rowData" pTemplate="body">
+            <span [ngStyle]="{color: lanc.tipo === 'RECEITA' ? 'blue' : 'red'}">{{lanc.valor}}</span>
+          </ng-template>
+        </p-column>
+
+        <p-column styleClass="col-acoes" header="Ações" >
+          <ng-template pTemplate="body">
+            <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top" ></a>
+            <a pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" ></a>
+          </ng-template>
+        </p-column>
+
+      </p-dataTable>
+    </div>
+    <div class="ui-g-12">
+      <a href="javascript:;" pButton label="Novo Lançamento"></a>
+    </div>
+  </div>
+
+</div>
