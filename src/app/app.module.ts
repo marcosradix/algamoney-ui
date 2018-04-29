@@ -13,10 +13,18 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LOCALE_ID } from '@angular/core';
 import { PessoaPesquisaComponent } from './pessoa-pesquisa/pessoa-pesquisa.component';
 import {RouterModule, Routes } from '@angular/router';
+import { SobreComponent } from './sobre/sobre.component';
+import { registerLocaleData } from '@angular/common';
+import localeBr from '@angular/common/locales/br';
+import localeFrExtra from '@angular/common/locales/extra/br';
+
+registerLocaleData(localeBr, 'pt-BR', localeFrExtra);
+
 
 const routerList : Routes = [
   {path:"", component: LancamentosComponent},
-  {path: "pessoas", component: PessoaPesquisaComponent}
+  {path: "pessoas", component: PessoaPesquisaComponent},
+  {path: "sobre", component: SobreComponent}
 ];
 
 @NgModule({
@@ -24,7 +32,8 @@ const routerList : Routes = [
     AppComponent,
     LancamentosComponent,
     NavbarComponent,
-    PessoaPesquisaComponent
+    PessoaPesquisaComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,

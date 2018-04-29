@@ -32,7 +32,8 @@
         <p-column field="dataPagamento" header="Pagamento" styleClass="col-data"></p-column>
         <p-column field="valor | currency:'BRL':'symbol':'4.2-2'" header="Valor" styleClass="col-valor">
           <ng-template let-lanc="rowData" pTemplate="body">
-            <span [ngStyle]="{color: lanc.tipo === 'RECEITA' ? 'blue' : 'red'}">{{lanc.valor}}</span>
+            <span [ngStyle]="{color: lanc.tipo === 'RECEITA' ? 'blue' : 'red'}">
+              {{lanc.valor | currency:'BRL':'symbol':'1.2-2'}}</span>
           </ng-template>
         </p-column>
 

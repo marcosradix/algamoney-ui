@@ -24,7 +24,7 @@ export class LancamentosComponent implements OnInit {
      {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: null,
      valor: 4.95,pessoa: "Marcos Ferreira Severino"},
      {tipo: "RECEITA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: null,
-     valor: 4.95,pessoa: "Marcos Ferreira Severino"},
+     valor: 100.95,pessoa: "Marcos Ferreira Severino"},
   ];
 
   pesquisar($value){
