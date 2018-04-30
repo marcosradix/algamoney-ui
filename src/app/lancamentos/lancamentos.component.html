@@ -3,34 +3,58 @@
   <div class="ui-g-12" style="margin-top:10%;">
     <h1>Lancamentos</h1>
   </div>
+
+  <div *ngIf="f.invalid && f.dirty " class="alert alert-danger" >
+      Preencha todos os campos corretamente.
+    </div>
+
+  <form #f="ngForm" (ngSubmit)="pesquisar(f)" >
   <div class="ui-g-12 ui-fluid">
     <label for="idDescricao" >Descrição</label>
-      <input id="idDescricao" type="text" [(ngModel)]="entradaTexto" (ngModelChange)="pesquisar(entradaTexto)" pInputText>
+      <input id="idDescricao" type="text"  pInputText 
+      [(ngModel)]="lancamento.descricao" name="descricao" required minlength="5" #desc="ngModel" >
   </div>
 
   <div class="ui-g-12">
 
     <label style="display: block;" for="venc">Vencimento</label>
-    <input type="text" id="venc" style="width:95px;" pInputText>
+    <input type="date" id="venc" style="width:152px;" pInputText required
+     [(ngModel)]="lancamento.dataVencimento" name="vencimento" >
 
     <label>Até
-      <input type="text" style="width:95px;" pInputText>
+      <input type="date" style="width:152px;" pInputText required
+       [(ngModel)]="lancamento.dataPagamento" name="pagamento" >
     </label>
   </div>
 
   <div class="ui-g-12">
-    <button [disabled]="!entradaTexto" pButton type="submit" label="Pesquisar"></button>
+    <button [disabled]="!f.valid" pButton type="submit" label="Pesquisar"></button>
   </div>
-
+</form>
   <div class="ui-g">
     <div class="ui-g-12">
       <p-dataTable [value]="lancamentos" [rows]="10" [paginator]="true" 
       [rowsPerPageOptions]="[5,10,20,30]" emptyMessage="Nada para mostrar." [responsive]="true" >
         <p-column field="pessoa" header="Pessoa"></p-column>
         <p-column field="descricao" header="Descrição"></p-column>
-        <p-column field="dataVencimento" header="Vencimento" styleClass="col-data"></p-column>
-        <p-column field="dataPagamento" header="Pagamento" styleClass="col-data"></p-column>
-        <p-column field="valor | currency:'BRL':'symbol':'4.2-2'" header="Valor" styleClass="col-valor">
+
+        <p-column field="dataVencimento" header="Vencimento" styleClass="col-data">
+          <ng-template let-dataVenc="rowData" pTemplate="body">
+            <span>
+              {{dataVenc.dataVencimento | date:'dd/MM/yyyy'}}
+            </span>
+          </ng-template>
+        </p-column>
+
+        <p-column field="dataPagamento" header="Pagamento" styleClass="col-data">
+          <ng-template let-dataPag="rowData" pTemplate="body">
+            <span>
+              {{dataPag.dataPagamento | date:'dd/MM/yyyy'}}
+            </span>
+          </ng-template>
+        </p-column>
+
+        <p-column field="valor" header="Valor" styleClass="col-valor">
           <ng-template let-lanc="rowData" pTemplate="body">
             <span [ngStyle]="{color: lanc.tipo === 'RECEITA' ? 'blue' : 'red'}">
               {{lanc.valor | currency:'BRL':'symbol':'1.2-2'}}</span>

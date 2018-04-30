@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LancamentoModel } from '../models/lancamentoModel';
 
 @Component({
   selector: 'app-lancamentos',
@@ -8,29 +9,33 @@ import { Component, OnInit } from '@angular/core';
 export class LancamentosComponent implements OnInit {
 
   entradaTexto: string='';
+  lancamento = new LancamentoModel();
   
   lancamentos = [
-    {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: null,
-     valor: 4.95,pessoa: "Marcos Ferreira Severino"},    {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: null,
+    {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: new Date(2018,6,30), dataPagamento: null,
      valor: 4.95,pessoa: "Marcos Ferreira Severino"},
-     {tipo: "RECEITA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: "31/10/2012",
+     {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: new Date(2018,6,30), dataPagamento: null,
      valor: 4.95,pessoa: "Marcos Ferreira Severino"},
-     {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: null,
+     {tipo: "RECEITA", descricao: "Compra de pão", dataVencimento: new Date(2018,6,30), dataPagamento: new Date(2018,8,28),
      valor: 4.95,pessoa: "Marcos Ferreira Severino"},
-     {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: null,
+     {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: new Date(2018,6,30), dataPagamento: null,
      valor: 4.95,pessoa: "Marcos Ferreira Severino"},
-     {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: null,
+     {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: new Date(2018,6,30), dataPagamento: null,
      valor: 4.95,pessoa: "Marcos Ferreira Severino"},
-     {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: null,
+     {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: new Date(2018,6,30), dataPagamento: null,
      valor: 4.95,pessoa: "Marcos Ferreira Severino"},
-     {tipo: "RECEITA", descricao: "Compra de pão", dataVencimento: "30/06/2018", dataPagamento: null,
+     {tipo: "DESPESA", descricao: "Compra de pão", dataVencimento: new Date(2018,6,30), dataPagamento: null,
+     valor: 4.95,pessoa: "Marcos Ferreira Severino"},
+     {tipo: "RECEITA", descricao: "Compra de pão", dataVencimento: new Date(2018,6,30), dataPagamento: new Date(2018,8,28),
      valor: 100.95,pessoa: "Marcos Ferreira Severino"},
   ];
 
   pesquisar($value){
-    if($value.length > 3){
-      console.log($value, $value.length);
-    }
+    
+      //console.log($value.value);
+      console.log("Lançamentos ", this.lancamento);
+
+    
   }
   constructor() { }
 

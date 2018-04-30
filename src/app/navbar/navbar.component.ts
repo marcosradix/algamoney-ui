@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  exibirMenu: boolean = false;
+ 
+  collapse: string = "collapse";
+
+  mouseLeaveStarEvent(){
+    let leave = this.collapse = `${this.collapse}`
+    console.log("mouseLeaveStarEvent", leave)
+  }
 
   constructor() { }
 

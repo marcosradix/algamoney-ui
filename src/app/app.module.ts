@@ -15,10 +15,11 @@ import { PessoaPesquisaComponent } from './pessoa-pesquisa/pessoa-pesquisa.compo
 import {RouterModule, Routes } from '@angular/router';
 import { SobreComponent } from './sobre/sobre.component';
 import { registerLocaleData } from '@angular/common';
-import localeBr from '@angular/common/locales/br';
-import localeFrExtra from '@angular/common/locales/extra/br';
+import localeBr from '@angular/common/locales/pt';
+import localeFrExtra from '@angular/common/locales/extra/pt';
+import { ServiceDirective } from './service.directive';
 
-registerLocaleData(localeBr, 'pt-BR', localeFrExtra);
+registerLocaleData(localeBr, 'pt-br', localeFrExtra);
 
 
 const routerList : Routes = [
@@ -33,7 +34,8 @@ const routerList : Routes = [
     LancamentosComponent,
     NavbarComponent,
     PessoaPesquisaComponent,
-    SobreComponent
+    SobreComponent,
+    ServiceDirective
   ],
   imports: [
     BrowserModule,
