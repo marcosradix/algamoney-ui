@@ -18,6 +18,8 @@ import { registerLocaleData } from '@angular/common';
 import localeBr from '@angular/common/locales/pt';
 import localeFrExtra from '@angular/common/locales/extra/pt';
 import { ServiceDirective } from './service.directive';
+import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
+import {InputTextareaModule} from 'primeng/components/inputtextarea/inputtextarea';
 
 registerLocaleData(localeBr, 'pt-br', localeFrExtra);
 
@@ -25,6 +27,7 @@ registerLocaleData(localeBr, 'pt-br', localeFrExtra);
 const routerList : Routes = [
   {path:"", component: LancamentosComponent},
   {path: "pessoas", component: PessoaPesquisaComponent},
+  {path: "cadastro-lancamnetos", component: LancamentosCadastroComponent},
   {path: "sobre", component: SobreComponent}
 ];
 
@@ -35,7 +38,8 @@ const routerList : Routes = [
     NavbarComponent,
     PessoaPesquisaComponent,
     SobreComponent,
-    ServiceDirective
+    ServiceDirective,
+    LancamentosCadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ const routerList : Routes = [
     DataTableModule,
     BrowserAnimationsModule,
     TooltipModule,
-    RouterModule.forRoot(routerList)
+    RouterModule.forRoot(routerList),
+    CalendarModule,
+    InputTextareaModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]

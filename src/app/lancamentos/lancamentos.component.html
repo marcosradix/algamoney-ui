@@ -1,6 +1,6 @@
 <div class="ui-g">
 
-  <div class="ui-g-12" style="margin-top:10%;">
+  <div class="ui-g-12" style="margin-top:50px;">
     <h1>Lancamentos</h1>
   </div>
 
@@ -15,15 +15,18 @@
       [(ngModel)]="lancamento.descricao" name="descricao" required minlength="5" #desc="ngModel" >
   </div>
 
-  <div class="ui-g-12">
+  <div class="ui-g-12 ui-sm-3">
 
     <label style="display: block;" for="venc">Vencimento</label>
-    <input type="date" id="venc" style="width:152px;" pInputText required
-     [(ngModel)]="lancamento.dataVencimento" name="vencimento" >
-
+     <p-calendar name="venc"  [(ngModel)]="lancamento.dataVencimento"
+      hourFormat="24" [utc]="true" required dateFormat="dd/mm/yy" [locale]="pt_br" >
+     </p-calendar>
+      
     <label>Até
-      <input type="date" style="width:152px;" pInputText required
-       [(ngModel)]="lancamento.dataPagamento" name="pagamento" >
+       <p-calendar [(ngModel)]="lancamento.dataPagamento" name="pagamento"
+        hourFormat="24" [utc]="true" required dateFormat="dd/mm/yy" [locale]="pt_br" >
+     </p-calendar>
+
     </label>
   </div>
 
