@@ -1,0 +1,56 @@
+<div class="container">
+  <form>
+    <div class="ui-g">
+      <div class="ui-g-12" style="margin-top:50px;">
+        <h1>Cadastro-Pessoas</h1>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label>Nome</label>
+        <input type="text" pInputText name="nom" required ngModel #nome="ngModel">
+        <app-message [control]="nome" error="required" text="Informe um nome."></app-message>
+      </div>
+
+      <div class="ui-g-9 ui-sm-12 ui-fluid">
+        <label>Logradouro</label>
+        <input type="text" pInputText name="log" required>
+      </div>
+
+      <div class="ui-g-3 ui-sm-12 ui-fluid">
+        <label>Número</label>
+        <input type="text" pInputText name="num" required>
+      </div>
+
+      <div class="ui-g-4 ui-sm-12 ui-fluid">
+        <label>Complemento</label>
+        <input type="text" pInputText name="compl">
+      </div>
+
+      <div class="ui-g-4 ui-sm-12 ui-fluid">
+        <label>Bairro</label>
+        <input type="text" pInputText name="bair" required>
+      </div>
+
+      <div class="ui-g-4 ui-sm-12 ui-fluid">
+        <label>Cep</label>
+        <input type="text" pInputText name="cep" required>
+      </div>
+
+      <div class="ui-g-6 ui-sm-12 ui-fluid">
+        <label>Cidade</label>
+        <input type="text" pInputText name="cid" required>
+      </div>
+
+      <div class="ui-g-6 ui-sm-12 ui-fluid">
+        <label>Estado</label>
+        <input type="text" pInputText name="est" required>
+      </div>
+
+      <div class="ui-g-12" >
+          <button pButton type="submit" label="Salvar" ></button>
+          <button pButton type="button" label="Novo" class="ui-button-info" ></button>
+         <span><a href="#" routerLink="/pessoas" class="ui-button-info" >Voltar para a pesquisa</a></span>
+    </div>
+
+    </div>
+  </form>

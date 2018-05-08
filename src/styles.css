@@ -8,6 +8,9 @@
 
 }
 
+#divValor{
+    margin-right: 0px;
+}
 .col-valor{
     width: 120px;
     text-align: right;

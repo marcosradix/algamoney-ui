@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LancamentoModel } from '../models/lancamentoModel';
 
 @Component({
   selector: 'app-lancamentos-cadastro',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lancamentos-cadastro.component.css']
 })
 export class LancamentosCadastroComponent implements OnInit {
+  lancamento = new LancamentoModel();
+
   pt_br = {
     firstDayOfWeek: 0,
     dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
@@ -18,6 +21,22 @@ export class LancamentosCadastroComponent implements OnInit {
     clear: 'Limpar'
   };
 
+  tipos = [
+    {label: "RECEITA", value: "RECEITA"},
+    {label: "DESPESA", value: "DESPESA"}
+  ];
+
+  categorias = [
+    {label: "Alimentação", value: 1},
+    {label: "Transporte", value: 2}
+  ];
+
+  pessoas = [
+    {label: "Marcos José", value: 1},
+    {label: "Ferreira da Silva", value: 2},
+    {label: "Severino Cardoso", value: 3}
+  ];
+ 
   constructor() { }
 
   ngOnInit() {

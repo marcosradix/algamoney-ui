@@ -20,6 +20,11 @@ import localeFrExtra from '@angular/common/locales/extra/pt';
 import { ServiceDirective } from './service.directive';
 import { LancamentosCadastroComponent } from './lancamentos-cadastro/lancamentos-cadastro.component';
 import {InputTextareaModule} from 'primeng/components/inputtextarea/inputtextarea';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {DropdownModule} from 'primeng/dropdown';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
+import { MessageComponent } from './message/message.component';
 
 registerLocaleData(localeBr, 'pt-br', localeFrExtra);
 
@@ -27,6 +32,7 @@ registerLocaleData(localeBr, 'pt-br', localeFrExtra);
 const routerList : Routes = [
   {path:"", component: LancamentosComponent},
   {path: "pessoas", component: PessoaPesquisaComponent},
+  {path: "cad-pessoas", component: CadastroPessoaComponent},
   {path: "cadastro-lancamnetos", component: LancamentosCadastroComponent},
   {path: "sobre", component: SobreComponent}
 ];
@@ -39,7 +45,9 @@ const routerList : Routes = [
     PessoaPesquisaComponent,
     SobreComponent,
     ServiceDirective,
-    LancamentosCadastroComponent
+    LancamentosCadastroComponent,
+    CadastroPessoaComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +59,10 @@ const routerList : Routes = [
     TooltipModule,
     RouterModule.forRoot(routerList),
     CalendarModule,
-    InputTextareaModule
+    InputTextareaModule,
+    SelectButtonModule,
+    DropdownModule,
+    CurrencyMaskModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
