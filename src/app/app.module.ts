@@ -25,6 +25,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
 import { MessageComponent } from './message/message.component';
+import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
 
 registerLocaleData(localeBr, 'pt-br', localeFrExtra);
 
@@ -47,7 +48,8 @@ const routerList : Routes = [
     ServiceDirective,
     LancamentosCadastroComponent,
     CadastroPessoaComponent,
-    MessageComponent
+    MessageComponent,
+    LancamentosGridComponent
   ],
   imports: [
     BrowserModule,

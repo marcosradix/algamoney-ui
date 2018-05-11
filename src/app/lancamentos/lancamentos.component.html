@@ -36,42 +36,7 @@
 </form>
   <div class="ui-g">
     <div class="ui-g-12">
-      <p-dataTable [value]="lancamentos" [rows]="10" [paginator]="true" 
-      [rowsPerPageOptions]="[5,10,20,30]" emptyMessage="Nada para mostrar." [responsive]="true" >
-        <p-column field="pessoa" header="Pessoa"></p-column>
-        <p-column field="descricao" header="Descrição"></p-column>
-
-        <p-column field="dataVencimento" header="Vencimento" styleClass="col-data">
-          <ng-template let-dataVenc="rowData" pTemplate="body">
-            <span>
-              {{dataVenc.dataVencimento | date:'dd/MM/yyyy'}}
-            </span>
-          </ng-template>
-        </p-column>
-
-        <p-column field="dataPagamento" header="Pagamento" styleClass="col-data">
-          <ng-template let-dataPag="rowData" pTemplate="body">
-            <span>
-              {{dataPag.dataPagamento | date:'dd/MM/yyyy'}}
-            </span>
-          </ng-template>
-        </p-column>
-
-        <p-column field="valor" header="Valor" styleClass="col-valor">
-          <ng-template let-lanc="rowData" pTemplate="body">
-            <span [ngStyle]="{color: lanc.tipo === 'RECEITA' ? 'blue' : 'red'}">
-              {{lanc.valor | currency:'BRL':'symbol':'1.2-2'}}</span>
-          </ng-template>
-        </p-column>
-
-        <p-column styleClass="col-acoes" header="Ações" >
-          <ng-template pTemplate="body">
-            <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top" ></a>
-            <a pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top" ></a>
-          </ng-template>
-        </p-column>
-
-      </p-dataTable>
+      <app-lancamentos-grid [lancamentos]="lancamentos" ></app-lancamentos-grid>
     </div>
     <div class="ui-g-12">
       <a href="javascript:;" pButton label="Novo Lançamento"></a>

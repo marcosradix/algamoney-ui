@@ -2,23 +2,26 @@
   <form>
     <div class="ui-g">
       <div class="ui-g-12" style="margin-top:50px;">
-        <h1>Cadastro-Pessoas</h1>
+        <h1>Nova Pessoa</h1>
       </div>
 
       <div class="ui-g-12 ui-fluid">
         <label>Nome</label>
-        <input type="text" pInputText name="nom" required ngModel #nome="ngModel">
+        <input type="text" pInputText name="nom" required ngModel #nome="ngModel" minlength="5">
         <app-message [control]="nome" error="required" text="Informe um nome."></app-message>
+        <app-message [control]="nome" error="minlength" text="Informe um nome de no minimo 5 caracteres."></app-message>
       </div>
 
       <div class="ui-g-9 ui-sm-12 ui-fluid">
         <label>Logradouro</label>
-        <input type="text" pInputText name="log" required>
+        <input type="text" pInputText name="log" required ngModel #logra="ngModel" >
+        <app-message [control]="logra" error="required" text="Informe o logradouro."></app-message>
       </div>
 
       <div class="ui-g-3 ui-sm-12 ui-fluid">
         <label>Número</label>
-        <input type="text" pInputText name="num" required>
+        <input type="text" pInputText name="num" required ngModel #numero="ngModel" >
+        <app-message [control]="numero" error="required" text="Informe o número."></app-message>
       </div>
 
       <div class="ui-g-4 ui-sm-12 ui-fluid">
@@ -28,22 +31,26 @@
 
       <div class="ui-g-4 ui-sm-12 ui-fluid">
         <label>Bairro</label>
-        <input type="text" pInputText name="bair" required>
+        <input type="text" pInputText name="bair" required ngModel #bairro="ngModel" >
+        <app-message [control]="bairro" error="required" text="Informe o bairro."></app-message>
       </div>
 
       <div class="ui-g-4 ui-sm-12 ui-fluid">
         <label>Cep</label>
-        <input type="text" pInputText name="cep" required>
+        <input type="text" pInputText name="cep" required ngModel #cep="ngModel">
+        <app-message [control]="cep" error="required" text="Informe o cep."></app-message>
       </div>
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
         <label>Cidade</label>
-        <input type="text" pInputText name="cid" required>
+        <input type="text" pInputText name="cid" required ngModel #cidade="ngModel" >
+        <app-message [control]="cidade" error="required" text="Informe o cidade."></app-message>
       </div>
 
       <div class="ui-g-6 ui-sm-12 ui-fluid">
         <label>Estado</label>
-        <input type="text" pInputText name="est" required>
+        <input type="text" pInputText name="est" required ngModel #estado="ngModel" >
+        <app-message [control]="estado" error="required" text="Informe o estado."></app-message>
       </div>
 
       <div class="ui-g-12" >
